@@ -1,17 +1,8 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
-Created on Thu Jan 16 15:48:43 2025
+Script name: slc33a1_gssg_sim.py
 
-@author: belayv
-"""
-
-"""
-Script name: slc33a1_gssg.py
-
-Script purpose: Molecular Dynamics (MD) Simulation Script Using OpenMM, intended to simulate SLC33A1 bound with or without GSSG in a lipid bilayer
-
-Written by: Viktor Belay 
+Script purpose: Molecular Dynamics (MD) Simulation Script Using OpenMM, 
+intended to simulate SLC33A1 bound with or without GSSG in a lipid bilayer
 
 Date: 12/08/24
 -------------------------------------------------------
@@ -21,13 +12,13 @@ using OpenMM's Python API. The system is initialized using CHARMM-formatted topo
 (PSF) and coordinate (PDB) files, and the simulation parameters are loaded from an 
 external YAML configuration file.
 
-1. Input Handling:
-   - Reads the system input files (PSF and PDB) and parameter files (PRM, PAR) 
+1. Input:
+   - Reads the system input files (PSF and PDB) and parameter files from CHARMMGUI (PRM, PAR) 
      specified in the YAML configuration.
    - Loads system dimensions from a JSON file (`sysinfo.dat`), ensuring the simulation
      box matches the desired dimensions.
 
-2. **System Setup**:
+2. System Setup:
    - Configures the OpenMM `System` object with non-bonded interactions (Particle Mesh 
      Ewald - PME), hydrogen mass repartitioning, and bond constraints to hydrogens 
      (HBonds).
@@ -65,7 +56,6 @@ parameters in the YAML configuration.
 - YAML for configuration parsing
 - CHARMM parameter and topology files
 - JSON
-- 
 
 Ensure the appropriate libraries are installed and that the paths to input files 
 are correctly set in `sim_params.yaml` before running the script.
@@ -80,7 +70,7 @@ import openmm.app as app
 from openmm import LangevinMiddleIntegrator
 from openmm.app import CharmmPsfFile, PDBFile, PDBxFile, CharmmParameterSet
 import simtk.unit as unit 
-import os, time, yaml, bz2, argparse, logging
+import os, time, yaml, bz2
 import json
 
 
@@ -102,6 +92,9 @@ state_file = input_filepath+params['input_paths']['state_filepath']
 ### Load paramter files
 param_filepath = params['input_paths']['param_filepath']
 param_filenames = params['input_paths']['param_filenames']
+sim_params=params['sim_params']
+restraint_params=params['restraint_params']
+output_filenames=params['output_paths']
 
 param_paths = [os.path.join(param_filepath, file) for file in param_filenames]
 params = CharmmParameterSet(*param_paths)
@@ -117,12 +110,12 @@ psf.setBox(x,y,z) # Matches box size set by CHARMM
 
 nonbonded_method = app.PME
 constraints = app.HBonds
-hydrogen_mass = 4.0 * unit.amu
-temperature = 303.15*unit.kelvin
-friction = 1/unit.picosecond
-time_step = 0.004*unit.picoseconds
-pressure = 1*unit.bar
-surface_tension = 0 
+hydrogen_mass = sim_params['hydrogen_mass'] * unit.amu
+temperature = sim_params['temperature']*unit.kelvin
+friction = sim_params['friction']/unit.picosecond
+time_step = sim_params['time_step']*unit.picoseconds
+pressure = sim_params['pressure']*unit.bar
+surface_tension = sim_params['surface_tension'] 
 
 ### Set up the system 
 
@@ -156,16 +149,12 @@ simulation.context.setPeriodicBoxVectors(*state.getPeriodicBoxVectors())
 simulation.context.setPositions(state.getPositions())
 simulation.context.setVelocities(state.getVelocities())
 
-# simulation.context.setPositions(pdb.positions)
-# simulation.context.setVelocitiesToTemperature()
-
-
 ### Simulation parameters
 
-nsteps= 125000000 # 500 ns, 100*10^6 fs
-report_freq= 25000 # every 0.1 ns
-chk_freq= 12500000 # every 50 ns
-traj_freq= 250000  # every 1ns at 4fs / step
+nsteps= sim_params['nsteps'] 
+report_freq= sim_params['report_freq'] 
+chk_freq= sim_params['chj_freq'] 
+traj_freq= sim_params['traj_freq']  # every 1ns at 4fs / step
 
 current_time = simulation.context.getState().getTime() / unit.nanoseconds
 total_simulation_time = nsteps*time_step / unit.nanoseconds
@@ -180,13 +169,13 @@ chk_freq_time = chk_freq * time_step / unit.nanoseconds
 ### Set output stuff
 
 # Set file names
-integrator_xml_filename = "integrator.xml.bz2"
-state_xml_filename = "state.xml.bz2"
-state_pdb_filename = "equilibrated.pdb"
-state_pdbx_filename = "equilibrated.cif"
-system_xml_filename = "system.xml.bz2"
-checkpoint_filename = "equilibrated.chk"
-traj_output_filename = "equilibrated.dcd"
+integrator_xml_filename = output_filenames['integrator_xml_filename']
+state_xml_filename = output_filenames['state_xml_filename']
+state_pdb_filename = output_filenames['state_pdb_filename']
+state_pdbx_filename = output_filenames['state_pdbx_filename']
+system_xml_filename = output_filenames['system_xml_filename']
+checkpoint_filename = output_filenames['checkpoint_filename']
+traj_output_filename = output_filenames['traj_output_filename']
 
 # write limited state information to standard out:
 simulation.reporters.append(
@@ -228,7 +217,7 @@ initial_time = time.time()
 simulation.step(steps_left)
 elapsed_time = (time.time() - initial_time) * unit.seconds
 simulation_time = nsteps * time_step
-print('    Equilibration took %.3f s for %.3f ns (%8.3f ns/day)' % (elapsed_time / unit.seconds, simulation_time / unit.nanoseconds, simulation_time / elapsed_time * unit.day / unit.nanoseconds))
+print('    Simulation took %.3f s for %.3f ns (%8.3f ns/day)' % (elapsed_time / unit.seconds, simulation_time / unit.nanoseconds, simulation_time / elapsed_time * unit.day / unit.nanoseconds))
 
 # Save and serialize the final state
 print("Serializing state to %s" % state_xml_filename)
