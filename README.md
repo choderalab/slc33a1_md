@@ -24,3 +24,20 @@ The general simulation and analysis scheme for this project is as follows. The s
 * `/3equilibration` contains outputs from CHARMMGUI Bilayer Builder and scripts to energy minimize and equilibrate the system using OpenMM.
 * `/4production` contains scripts to simulate the system using OpenMM.
 * `/5analysis` contains all scripts used to analyze simulation trajectories and to make figures for "SLC33A1 exports oxidized glutathione to maintain endoplasmic reticulum redox homeostasis" (citation here).
+
+# Citations
+
+* This work: Please cite (citation here)
+* CHARMMGUI:
+  1. Jo, S., Kim, T., Iyer, V. G. & Im, W. CHARMM-GUI: A web-based graphical user interface for CHARMM. J. Comput. Chem. 29, 1859–1865 (2008).
+  2. Kim, S. et al. CHARMM-GUI ligand reader and modeler for CHARMM force field generation of small molecules. J. Comput. Chem. 38, 1879–1886 (2017).
+  3. Jo, S., Kim, T. & Im, W. Automated Builder and Database of Protein/Membrane Complexes for Molecular Dynamics Simulations. PLOS ONE 2, e880 (2007).
+  4. Lee, J. et al. CHARMM-GUI Input Generator for NAMD, GROMACS, AMBER, OpenMM, and CHARMM/OpenMM Simulations Using the CHARMM36 Additive Force Field. J. Chem. Theory Comput. 12, 405–413 (2016).
+* OPM:
+  1. Lomize, M. A., Pogozheva, I. D., Joo, H., Mosberg, H. I. & Lomize, A. L. OPM database and PPM web server: resources for positioning of proteins in membranes. Nucleic Acids Res. 40, D370–D376 (2012).
+* CHARMM forcefield:
+  1. Huang, J. et al. CHARMM36m: an improved force field for folded and intrinsically disordered proteins. Nat. Methods 14, 71–73 (2017).
+* OpenMM:
+  1. Eastman, P. et al. OpenMM 7: Rapid development of high performance algorithms for molecular dynamics. PLOS Comput. Biol. 13, e1005659 (2017).
+* Schrödinger Maestro:
+  1. 
