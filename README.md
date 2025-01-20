@@ -14,6 +14,7 @@ The general simulation and analysis scheme for this project is as follows. The s
 
 1. `slc33a1map_gssg_1.pdb` was prepped for simulation using the Schrödinger Maestro Protein Preparation Wizard at pH 7.5 (https://www.schrodinger.com/platform/products/maestro/). The position of the resulting protein structure in a membrane was then calulcated using the Orientations of Proteins in Membranes (OPM) PPM 2.0 webserver (https://opm.phar.umich.edu/ppm_server), resulting in `slc33a1map_gssg_2.pdb`.
 2. GSSG in partially protonated state (net charge -2) was parameterized for simulation in the CHARMM36m forcefield using the CHARMMGUI Ligand Reader and Modeler (https://charmm-gui.org/?doc=input/ligandrm). The atom naming for GSSG in the output PDB file was used to replace the atom naming for GSSG in `slc33a1map_gssg_2.pdb`, resulting in `slc33a1map_gssg_3.pdb`.
+3. `slc33a1map_gssg_3.pdb` was used the input for the CHARMMGUI Bilayer Builder (https://charmm-gui.org/?doc=input/membrane.bilayer). The protein-ligand system was placed in a POPC:POPE = 3:1 membrane bilayer. The system was then solvated in a water box with 0.15 M KCl, resulting in `step5_input.pdb`. 
    
 
 # Directory structure
