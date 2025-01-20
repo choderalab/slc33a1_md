@@ -18,3 +18,9 @@ The general simulation and analysis scheme for this project is as follows. The s
    
 
 # Directory structure
+
+* `/1starting_models` contains the PDB file of the atomic model of SLC33A1 bound with GSSG as determined via cryo-EM.
+* `/2model_preparation` contains PDB files that are outputs from Maestro, OPM PPM 2.0, and CHARMMGUI Ligand Reader and Modeler.
+* `/3equilibration` contains outputs from CHARMMGUI Bilayer Builder and scripts to energy minimize and equilibrate the system using OpenMM.
+* `/4production` contains scripts to simulate the system using OpenMM.
+* `/5analysis` contains all scripts used to analyze simulation trajectories and to make figures for "SLC33A1 exports oxidized glutathione to maintain endoplasmic reticulum redox homeostasis" (citation here).
