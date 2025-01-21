@@ -1,0 +1,5 @@
+# Manifest
+This directory contains:
+
+* `slc33a1map_gssg_2.pdb` - output from Maestro Protein Preparation Wizard aligned to the OPM PPM 2.0 predicition of the protein in a membrane.
+* `slc33a1map_gssg_3.pdb` - `slc33a1map_gssg_2.pdb` with the atom naming scheme for GSSG replaced by the naming scheme in the PDB output of the CHARMMGUI Ligand Reader and Modeler.
