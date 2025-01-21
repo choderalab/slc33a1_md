@@ -39,5 +39,5 @@ The general simulation and analysis scheme for this project is as follows. The s
   1. Huang, J. et al. CHARMM36m: an improved force field for folded and intrinsically disordered proteins. Nat. Methods 14, 71–73 (2017).
 * OpenMM:
   1. Eastman, P. et al. OpenMM 7: Rapid development of high performance algorithms for molecular dynamics. PLOS Comput. Biol. 13, e1005659 (2017).
-* Schrödinger Maestro:
-  1. 
+* Schrödinger Maestro Protein Preparation Wizard:
+  1. Madhavi Sastry, G., Adzhigirey, M., Day, T., Annabhimoju, R. & Sherman, W. Protein and ligand preparation: parameters, protocols, and influence on virtual screening enrichments. J. Comput. Aided Mol. Des. 27, 221–234 (2013).
