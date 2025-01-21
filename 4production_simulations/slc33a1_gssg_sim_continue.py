@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Jan 16 18:26:18 2025
-
-@author: belayv
-"""
-
 from sys import stdout
 import mdtraj as md 
 import openmm as mm

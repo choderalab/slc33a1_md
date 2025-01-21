@@ -165,7 +165,7 @@ print(f"Random seed used for velocity initialization: {seed}")
 
 nsteps= sim_params['nsteps'] 
 report_freq= sim_params['report_freq'] 
-chk_freq= sim_params['chj_freq'] 
+chk_freq= sim_params['chk_freq'] 
 traj_freq= sim_params['traj_freq']  # every 1ns at 4fs / step
 
 current_time = simulation.context.getState().getTime() / unit.nanoseconds
