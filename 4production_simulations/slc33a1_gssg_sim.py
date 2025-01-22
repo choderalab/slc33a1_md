@@ -1,55 +1,13 @@
 """
 Script name: slc33a1_gssg_sim.py
 
-Script purpose: Molecular Dynamics (MD) Simulation Script Using OpenMM, 
-intended to simulate SLC33A1 bound with or without GSSG in a lipid bilayer
-
--------------------------------------------------------
-
-This script sets up and runs a molecular dynamics (MD) simulation of a molecular system 
-using OpenMM's Python API. The system is initialized using CHARMM-formatted topology 
-(PSF) and coordinate (PDB) files, and the simulation parameters are loaded from an 
-external YAML configuration file.
-
-1. Input:
-   - Reads the system input files (PSF and PDB) and parameter files from CHARMMGUI (PRM, PAR) 
-     specified in the YAML configuration.
-   - Loads system dimensions from a JSON file (`sysinfo.dat`), ensuring the simulation
-     box matches the desired dimensions.
-
-2. System Setup:
-   - Configures the OpenMM `System` object with non-bonded interactions (Particle Mesh 
-     Ewald - PME), hydrogen mass repartitioning, and bond constraints to hydrogens 
-     (HBonds).
-   - Adds a Monte Carlo barostat to maintain the target pressure and surface tension 
-     for membrane simulations.
-
-3. Simulation Parameters:
-   - The simulation is run in the NPT ensemble (constant number of particles, pressure, 
-     and temperature).
-   - Key simulation parameters such as timestep, friction coefficient, and temperature 
-     are specified.
-
-4. Output and Reporting:
-   - Trajectory data is saved in DCD format, and state data is periodically saved as 
-     checkpoint files for restarting simulations.
-   - Key metrics such as potential energy, kinetic energy, and simulation progress are 
-     reported to the standard output.
-
-5. Checkpointing and Serialization:
-   - The final state, system configuration, and integrator state are saved in XML 
-     format for reproducibility.
-   - Outputs are saved as both PDB and CIF formats for compatibility with downstream 
-     analysis.
-
-### Intended Use:
+Intended Use:
 This script is intended to run a 500 ns molecular dynamics simulation of SLC33A1 
-with or without GSSG bound in a lipid bilayer with waters and ions under CHARMMFF where 
-frequent state saving is crucial to avoid loss of data due to interruptions. 
+with or without GSSG bound in a lipid bilayer with waters and ions under CHARMMFF. 
 It can also be adapted for different types of simulations by changing the input 
 parameters in the YAML configuration.
 
-### Requirements:
+Requirements:
 - OpenMM (Version 7.7.0, maybe be incompatible with earlier or later versions)
 - MDTraj for trajectory output (DCD format)
 - YAML for configuration parsing
