@@ -4,5 +4,7 @@ All equilibration inputs and simulation scripts in this directory are generated 
 
 To run energy minimization and equilibration:
 
-1. Download CHARMM topology and parameter files from https://charmm-gui.org/?doc=toppar and the directory `/Toppar`.
-2. 
+1. Download CHARMM topology and parameter files from https://charmm-gui.org/?doc=toppar and the directory `/Toppar`. Ensure that this directory is pointed to by `toppar.str`.
+2. Run `run_equil` as a shell script.
+3. Six sequential equilibration steps will run. Note that parameters for each step can be accessed in the `.inp` files within this directory (eg `step6.1_equilibration.inp`).
+
