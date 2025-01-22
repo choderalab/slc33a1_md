@@ -4,7 +4,6 @@ Script name: slc33a1_gssg_sim.py
 Script purpose: Molecular Dynamics (MD) Simulation Script Using OpenMM, 
 intended to simulate SLC33A1 bound with or without GSSG in a lipid bilayer
 
-Date: 12/08/24
 -------------------------------------------------------
 
 This script sets up and runs a molecular dynamics (MD) simulation of a molecular system 
