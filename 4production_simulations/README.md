@@ -1,7 +1,5 @@
 # Manifest
 
-# Citations
-* CHARMM forcefield:
-  1. Huang, J. et al. CHARMM36m: an improved force field for folded and intrinsically disordered proteins. Nat. Methods 14, 71–73 (2017).
-* OpenMM:
-  1. Eastman, P. et al. OpenMM 7: Rapid development of high performance algorithms for molecular dynamics. PLOS Comput. Biol. 13, e1005659 (2017).
+To continue simulations following minimization and equilibration:
+
+1. Download CHARMM topology and parameter files from: https://charmm-gui.org/?doc=toppar and ensure that simulation scripts (`*.py` in this directory) can properly point to a directory containing these files. Topology and parameter files for GSSG exist in `/3equilibration/gds`.
