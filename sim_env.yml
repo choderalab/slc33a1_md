@@ -1,4 +1,4 @@
-name: simenv2
+name: sim_env
 channels:
   - plotly
   - salilab
