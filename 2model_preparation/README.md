@@ -10,3 +10,5 @@ This directory contains:
 
 * CHARMMGUI:
   1. Kim, S. et al. CHARMM-GUI ligand reader and modeler for CHARMM force field generation of small molecules. J. Comput. Chem. 38, 1879–1886 (2017).
+* Schrödinger Maestro Protein Preparation Wizard:
+  1. Madhavi Sastry, G., Adzhigirey, M., Day, T., Annabhimoju, R. & Sherman, W. Protein and ligand preparation: parameters, protocols, and influence on virtual screening enrichments. J. Comput. Aided Mol. Des. 27, 221–234 (2013).
