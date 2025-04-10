@@ -30,7 +30,7 @@ The equilibrated system can be further simulated using custom scripts located in
 
 ### Analysis
 
-Simulation trajectories can be analyzed with scripts located in `/5analysis`. All of the scripts in this directory are associated with a figure in "SLC33A1 exports oxidized glutathione to maintain endoplasmic reticulum redox homeostasis"
+Simulation trajectories can be analyzed with scripts located in `/5analysis`. All of the scripts in this directory are associated with figures in "SLC33A1 exports oxidized glutathione to maintain endoplasmic reticulum redox homeostasis"
 
 # Directory structure
 
