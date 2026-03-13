@@ -1,6 +1,6 @@
 # slc33a1_md
 
-This project is focused on preparing and simulating an atomic model of SLC33A1 with gluthatione disulfide (GSSG) bound. This project is associated with "SLC33A1 exports oxidized glutathione to maintain endoplasmic reticulum redox homeostasis" (citation here).
+This project is focused on preparing and simulating an atomic model of SLC33A1 with gluthatione disulfide (GSSG) bound. This project is associated with "SLC33A1 exports oxidized glutathione to maintain endoplasmic reticulum redox homeostasis" (https://www.biorxiv.org/content/10.64898/2026.02.01.703113v1)
 
 # slc33a1
 
@@ -42,7 +42,7 @@ Simulation trajectories can be analyzed with scripts located in `/5analysis`. Al
 
 # Citations
 
-* This work: Please cite (citation here)
+* This work: Liu and Gad, et al. "SLC33A1 exports oxidized glutathione to maintain endoplasmic reticulum redox homeostasis". BioRxiv. (2026).
 * CHARMMGUI:
   1. Jo, S., Kim, T., Iyer, V. G. & Im, W. CHARMM-GUI: A web-based graphical user interface for CHARMM. J. Comput. Chem. 29, 1859–1865 (2008).
   2. Kim, S. et al. CHARMM-GUI ligand reader and modeler for CHARMM force field generation of small molecules. J. Comput. Chem. 38, 1879–1886 (2017).
